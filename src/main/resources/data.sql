@@ -1,1 +1,0 @@
-INSERT INTO user ('phone', 'name', 'password', 'seller') VALUES ('123', 'umesh', '1234', true);
