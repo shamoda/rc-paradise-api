@@ -22,7 +22,8 @@ import com.api.rc_paradise_api.service.UserService;
 public class UserController {
 	
 	private final UserService service;
-	
+
+	//Tests
 	@Autowired
 	public UserController(UserService service) {
 		this.service = service;
