@@ -23,7 +23,7 @@ public class UserController {
 	
 	private final UserService service;
 
-	//Test
+	//Tests
 	@Autowired
 	public UserController(UserService service) {
 		this.service = service;
