@@ -1,7 +1,9 @@
 package com.api.rc_paradise_api.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.api.rc_paradise_api.model.CustomUserDetails;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,9 +18,12 @@ import com.api.rc_paradise_api.repository.UserRepository;
 @Service
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
-	
+
+	@Autowired
 	private final UserRepository repository;
+
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
 
 	public List<User> getAllUsers() {
@@ -31,9 +36,9 @@ public class UserService implements UserDetailsService {
 	
 	public String registerUser(User user) {
 
-		boolean userPresent = repository.findByphone(user.getPhone())
-			.isPresent();
-		if(userPresent){
+		User user1 = repository.findByPhone(user.getPhone());
+
+		if(user1 != null){
 
 			throw  new IllegalStateException("User is already registered ");
 		}
@@ -55,23 +60,26 @@ public class UserService implements UserDetailsService {
 		return "User deleted successfully";
 	}
 	
-	public User login(String id, String pwd) {
-		User user = repository.findById(id).orElse(null);
+	public User login(String phone) {
+		User user = repository.findByPhone(phone);
 		if(user == null) {
 			return null;
-		} else if (!user.getPassword().equals(pwd)) {
-			return null;
-		}else {
-			return user;
 		}
+		return user;
+
 	}
 
     //METHOD by userDetailsService
 	@Override
-	public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
 
-		return repository.findByphone(s)
-				.orElseThrow(() ->
-						new UsernameNotFoundException("User "+s+"not Found !!!!!"));
+		User user = repository.findByPhone(phone);
+		if(user == null){
+
+			throw new UsernameNotFoundException("User Not found");
+		}
+
+		return new CustomUserDetails(user);
+
 	}
 }

@@ -14,16 +14,16 @@ public class RegistrationService {
         this.userService = userService;
     }
 
-    public String register(Registrationrequest request){
+    public String register(User user){
 
         return userService.registerUser(
             new User(
 
-                    request.getPhone(),
-                    request.getName(),
-                    request.getPassword(),
-                    request.isSeller(),
-                    AppUserRole.USER
+                    user.getPhone(),
+                    user.getName(),
+                    user.getPassword(),
+                    user.getRole()
+
 
             )
 
