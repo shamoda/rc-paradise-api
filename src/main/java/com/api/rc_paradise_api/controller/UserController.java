@@ -18,7 +18,7 @@ import com.api.rc_paradise_api.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 public class UserController {
 	
 	private final UserService service;
@@ -50,9 +50,10 @@ public class UserController {
 		return new ResponseEntity<>(service.deleteUser(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/login/{id}/{pwd}") 
-	public ResponseEntity<User> login(@PathVariable String id, @PathVariable String pwd) {
-		return new ResponseEntity<User>(service.login(id, pwd), HttpStatus.OK);
+	@GetMapping("/login/{phone}")
+	public String login(@PathVariable String phone) {
+
+		return service.login(phone).getRole();
 	}
 
 }

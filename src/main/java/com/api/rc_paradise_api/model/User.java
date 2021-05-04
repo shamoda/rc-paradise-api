@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,71 +21,56 @@ import java.util.Collections;
 
 
 @NoArgsConstructor
-@Setter
-@Getter
 @ToString
 @EqualsAndHashCode
 @Entity
-public class User  implements UserDetails {
+
+public class User{
 	
 	@Id
 	private String phone;
 	private String name;
 	private String password;
-	private boolean seller;
-
-	@Enumerated(EnumType.STRING)
-	private AppUserRole appUserRole;
-	private Boolean locked = false;
-	private Boolean enabled = false;
+	private String role;
 
 
-	public User(String phone, String name, String password, boolean seller, AppUserRole appUserRole) {
+
+	public User(String phone, String name, String password, String role) {
 		this.phone = phone;
 		this.name = name;
 		this.password = password;
-		this.seller = seller;
-		this.appUserRole = appUserRole;
-
+		this.role = role;
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
-	return Collections.singletonList(authority);
+	public String getPhone() {
+		return phone;
 	}
 
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	@Override
-	public String getUsername() {
-		return phone;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
+	public String getRole() {
+		return role;
 	}
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return !locked;
+	public void setRole(String role) {
+		this.role = role;
 	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-
-	
-
 }

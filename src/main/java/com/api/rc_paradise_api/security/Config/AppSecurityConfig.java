@@ -4,6 +4,7 @@ import com.api.rc_paradise_api.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,7 +12,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @AllArgsConstructor
@@ -21,31 +24,29 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
-    }
-
     @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(){
-
+    AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(bCryptPasswordEncoder);
         provider.setUserDetailsService(userService);
+        provider.setPasswordEncoder(bCryptPasswordEncoder);
+
         return provider;
+
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http
                 .csrf().disable()
                 .authorizeRequests()
-                 .antMatchers("/api/v1/register/user")
+                .antMatchers("/register/user")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
-                .and()
-                .formLogin();
+                 .and()
+                .httpBasic();
+
 
 
     }
