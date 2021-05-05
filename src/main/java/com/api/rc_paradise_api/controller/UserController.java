@@ -18,7 +18,7 @@ import com.api.rc_paradise_api.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
-//@RequestMapping("/api/v1")
+@RequestMapping("/api/v1")
 public class UserController {
 	
 	private final UserService service;
@@ -51,9 +51,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/login/{phone}")
-	public String login(@PathVariable String phone) {
+	public User login(@PathVariable String phone) {
 
-		return service.login(phone).getRole();
+		return service.login(phone);
 	}
 
 }
