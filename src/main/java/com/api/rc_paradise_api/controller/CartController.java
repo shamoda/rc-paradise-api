@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -29,26 +30,26 @@ public class CartController {
 
         return new ResponseEntity<>(cartService.getAllCart(), HttpStatus.OK);
     }
-
+    @GetMapping("/cart/{sellerId}")
+    public ResponseEntity<?> getProduct(@PathVariable String sellerId) {
+        return new ResponseEntity<>(cartService.searchCartBySeller(sellerId), HttpStatus.OK);
+    }
 
     @PostMapping("/Add")
-    public ResponseEntity<?> insertCart( @RequestParam String BuyerName){
-
-//
-//        for(Cart item : cart){
-//
-//            final UUID uuid = UUID.randomUUID();
-//            final String pID = uuid.toString();
-//
-////            item.setDeliveryMode(DeliveryMode);
-//
-//
-//            item.setPID(pID);
-//            item.setBuyerName(BuyerName);
-//            cartService.saveCart(item);
+    public ResponseEntity<?> insertCart(@RequestBody Cart[] cart ){
 
 
-//        }
+        for(Cart item : cart){
+
+            final UUID uuid = UUID.randomUUID();
+            final String pID = uuid.toString();
+
+            item.setPID(pID);
+
+            cartService.saveCart(item);
+
+
+        }
 
         return new ResponseEntity<>( HttpStatus.CREATED);
     }

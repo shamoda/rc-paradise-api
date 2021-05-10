@@ -27,4 +27,8 @@ public class CartService {
 
         return cartRepository.save(cart);
     }
+
+    public List<Cart> searchCartBySeller(String sellerId) {
+        return cartRepository.findBysellerId(sellerId);
+    }
 }
