@@ -23,11 +23,7 @@
 									template !!! <br>
 							</div>
 							<div>
-								<br> Java Techie is a channel where we create and publish
-								videos on<br> 'how to' about latest technology trends like<br>
-								spring ,spring boot ,hibernate , web services and micro service
-								<br> ""This channel is created to share the knowledge and
-								to gain the knowledge"<br>
+								<br>" RC PARADISE IS THE BEST TOY SHOP "<br>
 								<br>"Sharing the knowledge is biggest learning" <br> <br>
 								<br> <br> <b>${Name}</b><br>${location}<br>
 								<br>
