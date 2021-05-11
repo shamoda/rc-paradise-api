@@ -1,5 +1,6 @@
 package com.api.rc_paradise_api.service;
 
+import com.api.rc_paradise_api.model.Cart;
 import com.api.rc_paradise_api.model.Product;
 import com.api.rc_paradise_api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.util.zip.Inflater;
 public class ProductService {
 
     private final ProductRepository repository;
+
 
     @Autowired
     public ProductService(ProductRepository repository) {
@@ -53,6 +55,9 @@ public class ProductService {
         repository.deleteById(id);
         return "product with id: " + id + " deleted";
     }
+
+
+
 
     // compress uploading image
     public static byte[] compressBytes(byte[] data) {
