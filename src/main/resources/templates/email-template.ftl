@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Java Techie Mail</title>
+<title>RC Paradise Confirmation</title>
 </head>
 
 <body>
@@ -15,16 +15,16 @@
 							style="background-color: #d3be6c; font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; padding: 0px 15px 10px 15px;">
 							
 							<div style="font-size: 48px; color:blue;">
-								<b>Java Techie</b>
+								<b>RC Paradise</b>
 							</div>
 							
 							<div style="font-size: 24px; color: #555100;">
-								<br> Sending Email using Spring Boot with <b>FreeMarker
-									template !!! <br>
+								<br><b>Order Received</b><br>
+								Dispatch Now
 							</div>
 							<div>
-								<br>" RC PARADISE IS THE BEST TOY SHOP "<br>
-								<br>"Sharing the knowledge is biggest learning" <br> <br>
+								<br>Name: <br>
+								<br>Address: <br> <br>
 								<br> <br> <b>${Name}</b><br>${location}<br>
 								<br>
 							</div>
