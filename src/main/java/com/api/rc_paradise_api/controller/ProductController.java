@@ -15,11 +15,13 @@ public class ProductController {
 
     private final ProductService service;
 
+    // Dependency Injection using constructor
     @Autowired
     public ProductController(ProductService service) {
         this.service = service;
     }
 
+    // insert new product to the system
     @PostMapping("/product/add")
     public ResponseEntity<?> addProduct(@RequestParam("sellerID") String sellerID,
                                         @RequestParam("name") String name,
@@ -49,6 +51,7 @@ public class ProductController {
         return new ResponseEntity<>(service.saveProduct(p), HttpStatus.CREATED);
     }
 
+    // update an existing product record
     @PutMapping("/product/update")
     public ResponseEntity<?> updateProduct(@RequestParam("productId") Long productId,
                                            @RequestParam("sellerID") String sellerID,
@@ -81,28 +84,31 @@ public class ProductController {
     }
 
 
+    // retrieve all products
     @GetMapping("/product")
     public ResponseEntity<?> retrieveAllProducts() {
         return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
     }
 
+    // retrieve all products according to the request params
     @GetMapping("/product/search")
     public ResponseEntity<?> searchProducts(@RequestParam(value = "query") String query) {
         return new ResponseEntity<>(service.searchProducts(query), HttpStatus.OK);
     }
 
+    // retrieve all products of a particular seller
     @GetMapping("/product/seller")
     public ResponseEntity<?> searchProductsBySeller(@RequestParam(value = "sellerId") String sellerId, @RequestParam(value = "query") String query) {
         return new ResponseEntity<>(service.searchProductsBySeller(sellerId, query), HttpStatus.OK);
     }
 
-
+    // retrieve product by id
     @GetMapping("/product/{productId}")
     public ResponseEntity<?> getProduct(@PathVariable Long productId) {
         return new ResponseEntity<>(service.getProduct(productId), HttpStatus.OK);
     }
 
-
+    // delete product by id
     @DeleteMapping("/product/delete/{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long productId) {
         return new ResponseEntity<>(service.deleteProduct(productId), HttpStatus.OK);

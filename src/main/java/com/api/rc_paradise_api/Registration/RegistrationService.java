@@ -15,19 +15,14 @@ public class RegistrationService {
     }
 
     public String register(User user){
-
         return userService.registerUser(
             new User(
-
                     user.getPhone(),
                     user.getName(),
                     user.getPassword(),
                     user.getRole()
-
-
             )
-
         );
-
     }
+
 }

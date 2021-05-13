@@ -33,8 +33,6 @@ public class User{
 	private String password;
 	private String role;
 
-
-
 	public User(String phone, String name, String password, String role) {
 		this.phone = phone;
 		this.name = name;

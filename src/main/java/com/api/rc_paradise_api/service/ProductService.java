@@ -19,7 +19,7 @@ public class ProductService {
 
     private final ProductRepository repository;
 
-
+    // Dependency Injection using constructor
     @Autowired
     public ProductService(ProductRepository repository) {
         this.repository = repository;

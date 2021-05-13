@@ -15,7 +15,6 @@ import javax.persistence.Id;
 @Entity
 public class Cart {
 
-
     @Id
     private String pID;
     private String buyerName;
@@ -24,8 +23,5 @@ public class Cart {
     private String deliveryMode;
     private String sellerId;
     private String buyerAddress;
-
-
-
 
 }

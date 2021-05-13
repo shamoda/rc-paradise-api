@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart ,String> {
-
-
+    // find record by seller id
     List<Cart> findBysellerId(String sellerId);
 }

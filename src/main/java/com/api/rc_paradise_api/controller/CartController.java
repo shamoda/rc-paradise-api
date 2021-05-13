@@ -19,38 +19,33 @@ public class CartController {
 
     private CartService cartService;
 
+    // Dependency Injection using constructor
     @Autowired
     public CartController(CartService cartService) {
-
         this.cartService = cartService;
     }
 
+    // retrieve all cart objects
     @GetMapping("/cart")
-    public ResponseEntity<?> getAllUsers() {
-
+    public ResponseEntity<?> getAllCart() {
         return new ResponseEntity<>(cartService.getAllCart(), HttpStatus.OK);
     }
+
+    // retrieve cart objects of a particular selelr
     @GetMapping("/cart/{sellerId}")
     public ResponseEntity<?> getProduct(@PathVariable String sellerId) {
         return new ResponseEntity<>(cartService.searchCartBySeller(sellerId), HttpStatus.OK);
     }
 
+    // insert new record
     @PostMapping("/Add")
     public ResponseEntity<?> insertCart(@RequestBody Cart[] cart ){
-
-
         for(Cart item : cart){
-
             final UUID uuid = UUID.randomUUID();
             final String pID = uuid.toString();
-
             item.setPID(pID);
-
             cartService.saveCart(item);
-
-
         }
-
         return new ResponseEntity<>( HttpStatus.CREATED);
     }
 }

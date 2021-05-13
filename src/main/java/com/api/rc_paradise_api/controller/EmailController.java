@@ -25,7 +25,6 @@ public class EmailController {
         model.put("Name", request.getName());
         model.put("location", "Sri Lanka");
         return service.sendEmail(request, model);
-
     }
    
    
