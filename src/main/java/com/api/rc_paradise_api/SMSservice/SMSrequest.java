@@ -18,4 +18,12 @@ public class SMSrequest {
     }
 
 
+    public void setOtp(int otp) {
+        this.otp = otp;
+    }
+
+    public int getOtp() {
+
+        return otp;
+    }
 }
