@@ -56,9 +56,6 @@ public class EmailService {
             response.setMessage("Mail Sending failure : "+e.getMessage());
             response.setStatus(Boolean.FALSE);
         }
-
         return response;
     }
-
-
 }

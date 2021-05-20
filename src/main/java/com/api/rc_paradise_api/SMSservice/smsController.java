@@ -22,7 +22,6 @@ public class smsController {
 
     @PostMapping("/sendSMS") //sending SMS
     private int sendSMS( @RequestBody SMSrequest SMS){
-
         int OTP = otPservice.generateOTP(SMS.getPhoneNumber());  //Generating otp
         SMS.setOtp(OTP);  //setting OTP
         twilowService.sendSMS(SMS);//Sending OTP using twilio service Api
@@ -34,7 +33,6 @@ public class smsController {
         //Getting OTP & phone No
         int otp = SMS.getOtp();
         String phone = SMS.getPhoneNumber();
-
         if(otp > 0){  //Validate the Otp
             int storedOtp = otPservice.getOtp(phone);  //Get OTP stored in cache
             if(storedOtp > 0){//Checking is it valid

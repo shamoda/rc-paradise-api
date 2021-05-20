@@ -7,7 +7,6 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
 @Configuration
 public class ApiConfig {
-
     @Primary
     @Bean
     public FreeMarkerConfigurationFactoryBean factoryBean() {
@@ -15,5 +14,4 @@ public class ApiConfig {
         bean.setTemplateLoaderPath("classpath:/templates");
         return bean;
     }
-
 }

@@ -6,5 +6,5 @@ public class EmailConstants {
     public static final String UBER = "Uber";
     public static final String FEDEX = "Fedex";
 
-
+    private EmailConstants() {}
 }

@@ -17,7 +17,6 @@ public class OTPservice {
     //Defining LoadingCache of Guava dependency
     private LoadingCache<String ,Integer> otpCache;
 
-
     public OTPservice() {
         super();
         //Setting expiration time and using the LoadingCache
@@ -33,7 +32,6 @@ public class OTPservice {
     }
     //Generate a unique OTP
     public int generateOTP(String key){
-
         Random random = new Random(); //a 4 NUMBER otp generated
         int value = 1000 + random.nextInt(9000);
         otpCache.put(key, value); //Storing in cache
@@ -52,7 +50,5 @@ public class OTPservice {
     public void invalidateOTP(String Key){
         //invalidating the Unique OTP after use
         otpCache.invalidate(Key);
-
-
     }
 }
