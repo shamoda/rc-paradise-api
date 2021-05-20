@@ -13,15 +13,18 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+//Cart model
 public class Cart {
 
     @Id
     private String pID;
+    private String productID;
     private String buyerName;
     private String name;
     private String price;
     private String deliveryMode;
     private String sellerId;
     private String buyerAddress;
+    private String quantity;
 
 }

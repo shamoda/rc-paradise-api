@@ -2,59 +2,54 @@ package com.api.rc_paradise_api.SMSservice;
 
 import com.api.rc_paradise_api.SMSservice.OTPservice.OTPservice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.concurrent.ExecutionException;
 
+
 @RestController
-public class SMScontroller {
+@RequestMapping("/api/v1")
+@CrossOrigin
+public class smsController {
 
     private final TwilowService twilowService;
     private final OTPservice otPservice;
 
     @Autowired
-    public SMScontroller(TwilowService twilowService, OTPservice otPservice) {
+    public smsController(TwilowService twilowService, OTPservice otPservice) {
         this.twilowService = twilowService;
         this.otPservice = otPservice;
     }
 
-    @PostMapping("/sendSMS")
-    private int sendSMS(@Validated @RequestBody SMSrequest SMS){
-   //sending the SMS
+    @PostMapping("/sendSMS") //sending SMS
+    private int sendSMS( @RequestBody SMSrequest SMS){
+
         int OTP = otPservice.generateOTP(SMS.getPhoneNumber());  //Generating otp
         SMS.setOtp(OTP);  //setting OTP
-        twilowService.sendSMS(SMS);
-        return SMS.getOtp();
+        twilowService.sendSMS(SMS);//Sending OTP using twilio service Api
+        return SMS.getOtp(); //return OTP
     }
 
-   @GetMapping("/ValidateOTP")
+   @PostMapping("/validateOTP") //Validating OTP
     public String validate(@RequestBody SMSrequest SMS) throws ExecutionException {
-  //Validating the OTP
-
+        //Getting OTP & phone No
         int otp = SMS.getOtp();
         String phone = SMS.getPhoneNumber();
 
-        //Validate the Otp
-        if(otp > 0){
-
-            int storedOtp = otPservice.getOtp(phone);
-
-            if(storedOtp > 0){
-                if(otp == storedOtp){
-
-                    otPservice.invalidateOTP(phone);
-
+        if(otp > 0){  //Validate the Otp
+            int storedOtp = otPservice.getOtp(phone);  //Get OTP stored in cache
+            if(storedOtp > 0){//Checking is it valid
+                if(otp == storedOtp){//Validating
+                    otPservice.invalidateOTP(phone); //Invalidating after use
                     return ("Entered Otp is valid");
                 }
                 else {
-                    return "OTP is valid ,but Not validated" + storedOtp + "G "+SMS.getPhoneNumber();
+                    return "";
                 }
-            }else {
-                return  String.valueOf(storedOtp) ;
+            }else {                     //return empty String if invalid
+                return  "";
             }
         }else {
-            return  "FAIL!";
+            return  "";
         }
     }
 }

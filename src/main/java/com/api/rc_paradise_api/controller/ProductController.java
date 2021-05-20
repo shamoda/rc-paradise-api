@@ -30,8 +30,8 @@ public class ProductController {
                                         @RequestParam("qty") int qty,
                                         @RequestParam("category") String category,
                                         @RequestParam("manufacturer") String manufacturer,
-                                        @RequestParam("rDistance") int rDistance,
-                                        @RequestParam("image") MultipartFile image
+                                        @RequestParam("rDistance") int rDistance
+//                                        @RequestParam("image") MultipartFile image
                                         )
     {
         Product p = new Product();
@@ -44,7 +44,7 @@ public class ProductController {
             p.setCategory(category);
             p.setManufacturer(manufacturer);
             p.setRDistance(rDistance);
-            p.setImage(image.getBytes());
+//            p.setImage(image.getBytes());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -61,8 +61,8 @@ public class ProductController {
                                            @RequestParam("qty") int qty,
                                            @RequestParam("category") String category,
                                            @RequestParam("manufacturer") String manufacturer,
-                                           @RequestParam("rDistance") int rDistance,
-                                           @RequestParam("image") MultipartFile image
+                                           @RequestParam("rDistance") int rDistance
+//                                           @RequestParam("image") MultipartFile image
                                             )
     {
         Product p = new Product();
@@ -76,7 +76,7 @@ public class ProductController {
             p.setCategory(category);
             p.setManufacturer(manufacturer);
             p.setRDistance(rDistance);
-            p.setImage(image.getBytes());
+//            p.setImage(image.getBytes());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

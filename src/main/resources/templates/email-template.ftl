@@ -17,15 +17,18 @@
 							<div style="font-size: 48px; color:blue;">
 								<b>RC Paradise</b>
 							</div>
-							
+
 							<div style="font-size: 24px; color: #555100;">
 								<br><b>Order Received</b><br>
 								Dispatch Now
 							</div>
 							<div>
-								<br>Name: <br>
-								<br>Address: <br> <br>
-								<br> <br> <b>${Name}</b><br>${location}<br>
+								<br>Product ID    :  <b>${ProductID} </b><br>
+								<br>Product Name  :  <b>${ProductName}</b>  <br>
+								<br>Quantity      :  <b>${Quantity}</b><br>
+                                <br>Price         :  <b>${Price}</b><br>
+                                <br>Buyer Address :  <b>${BuyerAdd}</b><br>
+
 								<br>
 							</div>
 						</td>
