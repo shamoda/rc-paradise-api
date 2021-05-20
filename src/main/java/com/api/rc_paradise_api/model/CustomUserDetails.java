@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.Collections;
 
-
+//implements inBuilt UserDetail method to overide methods
 public class CustomUserDetails implements UserDetails {
 
     private User user;
@@ -32,7 +32,7 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.getPhone();
-    }
+    }  //Getting phone No as username
 
     @Override
     public boolean isAccountNonExpired() {
@@ -42,7 +42,7 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isAccountNonLocked() {
         return true;
-    }
+    }               //Defining special methods as false
 
     @Override
     public boolean isCredentialsNonExpired() {

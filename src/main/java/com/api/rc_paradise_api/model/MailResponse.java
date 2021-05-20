@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+//Mail Reply or response modeule
 public class MailResponse {
 
     private String message;
