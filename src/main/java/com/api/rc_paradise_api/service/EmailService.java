@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.Emailservice;
+package com.api.rc_paradise_api.service;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;

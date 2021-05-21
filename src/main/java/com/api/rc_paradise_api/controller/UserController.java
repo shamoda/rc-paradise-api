@@ -59,5 +59,4 @@ public class UserController {
 	public User login(@PathVariable String phone) {
 		return service.login(phone);
 	}
-
 }

@@ -56,9 +56,6 @@ public class ProductService {
         return "product with id: " + id + " deleted";
     }
 
-
-
-
     // compress uploading image
     public static byte[] compressBytes(byte[] data) {
         Deflater deflater = new Deflater();
@@ -104,6 +101,4 @@ public class ProductService {
 
         return outputStream.toByteArray();
     }
-
-
 }

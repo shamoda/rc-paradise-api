@@ -1,6 +1,8 @@
-package com.api.rc_paradise_api.SMSservice;
+package com.api.rc_paradise_api.controller;
 
-import com.api.rc_paradise_api.SMSservice.OTPservice.OTPservice;
+import com.api.rc_paradise_api.model.SMSrequest;
+import com.api.rc_paradise_api.service.OTPservice;
+import com.api.rc_paradise_api.service.TwilowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.ExecutionException;

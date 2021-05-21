@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.SMSservice;
+package com.api.rc_paradise_api.model;
 
 //SMS request model
 public class SMSrequest {

@@ -5,8 +5,6 @@ import lombok.*;
 
 @Data //Model email request
 public class MailRequest {
-
-
     private String to;
     private String from;
     private String subject;
@@ -17,14 +15,6 @@ public class MailRequest {
         this.from = from;
         this.subject = subject;
     }
-
-//    public String getDeliveryName() {
-//        return deliveryName;
-//    }
-//
-//    public void setDeliveryName(String deliveryName) {
-//        this.deliveryName = deliveryName;
-//    }
 
     public String getTo() {
         return to;

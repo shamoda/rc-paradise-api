@@ -83,7 +83,6 @@ public class ProductController {
         return new ResponseEntity<>(service.saveProduct(p), HttpStatus.OK);
     }
 
-
     // retrieve all products
     @GetMapping("/product")
     public ResponseEntity<?> retrieveAllProducts() {

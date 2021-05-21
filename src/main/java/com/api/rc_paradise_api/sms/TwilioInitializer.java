@@ -1,6 +1,6 @@
-package com.api.rc_paradise_api.SMSservice;
+package com.api.rc_paradise_api.sms;
 
-import com.api.rc_paradise_api.SMSservice.Config.TwilloConfig;
+import com.api.rc_paradise_api.sms.Config.TwilloConfig;
 import com.twilio.Twilio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

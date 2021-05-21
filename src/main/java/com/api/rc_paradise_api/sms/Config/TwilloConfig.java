@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.SMSservice.Config;
+package com.api.rc_paradise_api.sms.Config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.Emailservice;
+package com.api.rc_paradise_api.email;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

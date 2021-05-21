@@ -1,7 +1,8 @@
-package com.api.rc_paradise_api.SMSservice;
+package com.api.rc_paradise_api.service;
 
-import com.api.rc_paradise_api.SMSservice.Config.TwilloConfig;
-import com.api.rc_paradise_api.SMSservice.OTPservice.OTPservice;
+import com.api.rc_paradise_api.sms.Config.TwilloConfig;
+import com.api.rc_paradise_api.model.SMSrequest;
+import com.api.rc_paradise_api.sms.SMSsender;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
 import com.twilio.type.PhoneNumber;
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service //implementing SMSsender interface
-public class TwilowService implements SMSsender{
+public class TwilowService implements SMSsender {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TwilowService.class);
     private final TwilloConfig twilloConfig;

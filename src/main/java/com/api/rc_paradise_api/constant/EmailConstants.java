@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.Constants;
+package com.api.rc_paradise_api.constant;
 
 public class EmailConstants {
     //Email Constants

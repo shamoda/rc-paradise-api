@@ -1,7 +1,6 @@
 package com.api.rc_paradise_api.service;
 
-import com.api.rc_paradise_api.Constants.EmailConstants;
-import com.api.rc_paradise_api.Emailservice.EmailService;
+import com.api.rc_paradise_api.constant.EmailConstants;
 import com.api.rc_paradise_api.model.Cart;
 import com.api.rc_paradise_api.model.MailRequest;
 import com.api.rc_paradise_api.repository.CartRepository;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

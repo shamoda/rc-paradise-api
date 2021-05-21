@@ -1,8 +1,7 @@
 package com.api.rc_paradise_api.controller;
 
-import com.api.rc_paradise_api.Emailservice.EmailService;
+import com.api.rc_paradise_api.service.EmailService;
 import com.api.rc_paradise_api.model.Cart;
-import com.api.rc_paradise_api.model.MailRequest;
 import com.api.rc_paradise_api.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

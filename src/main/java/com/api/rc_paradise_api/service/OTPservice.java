@@ -1,4 +1,4 @@
-package com.api.rc_paradise_api.SMSservice.OTPservice;
+package com.api.rc_paradise_api.service;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
